@@ -34,10 +34,23 @@
 <div id="main">
     <h3>Insert the link below, you want to fetch the details for.</h3>
     <form method="GET">
+        
         <label for="links"></label>
         <input type="url" id="links" name="links"><br>
         <button type="submit">Submit</button>
     </form>
+{% if book_INFO %}
+    <h3>{{ book_information.title }}</h3>
+    <h3>{{ book_information.average_rating }}</h3>
+    <h3>{{ book_information.ratings_count }}</h3>
+    <h3>{{ book_information.num_pages }}</h3>
+    <h3>{{ book_information.image_url }}</h3>
+    <h3>{{ book_information.publication_year }}</h3>
+    <h3>{{ book_information.authors }}</h3>
+{% endif %}
+    {% if error %}
+    <h1>{{ error }}</h1>
+    {% endif %}
 </div>
 
 </body>

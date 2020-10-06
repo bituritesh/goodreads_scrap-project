@@ -40,13 +40,13 @@
         <button type="submit">Submit</button>
     </form>
 {% if book_INFO %}
-    <h3>{{ book_information.title }}</h3>
-    <h3>{{ book_information.average_rating }}</h3>
-    <h3>{{ book_information.ratings_count }}</h3>
-    <h3>{{ book_information.num_pages }}</h3>
-    <h3>{{ book_information.image_url }}</h3>
-    <h3>{{ book_information.publication_year }}</h3>
-    <h3>{{ book_information.authors }}</h3>
+    <h3>{{ book_INFO.title }}</h3>
+    <h3>{{ book_INFO.average_rating }}</h3>
+    <h3>{{ book_INFO.ratings_count }}</h3>
+    <h3>{{ book_INFO.num_pages }}</h3>
+    <h3>{{ book_INFO.image_url }}</h3>
+    <h3>{{ book_INFO.publication_year }}</h3>
+    <h3>{{ book_INFO.authors }}</h3>
 {% endif %}
     {% if error %}
     <h1>{{ error }}</h1>

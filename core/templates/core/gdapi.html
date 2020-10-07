@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>goodread scrapper</title>
+    <title>Title</title>
     <style>
         * {
         margin:0;
@@ -12,7 +12,7 @@
         text-align: center;
         padding-top: 100px;
         }
-        input[type='url']{
+        input[type='text']{
         width: 30%;
         padding: 10px;
         border: 2px solid black;
@@ -31,29 +31,25 @@
     </style>
 </head>
 <body>
+
 <div id="main">
-    <p>To fetch the reviews using goodreads api <a href="http://localhost:8000/gdapi/"> CLICK HERE</a></p>
+    <p><a href="http://localhost:8000/">CLICK HERE</a> back home</p>
+    <p>GD API for reviews</p>
     <br><br>
-    <h3>Insert the link below, you want to fetch the details for.</h3>
+    <h3>Insert the book id and developer key below, to fetch the reviews for.</h3>
+
     <form method="GET">
-        
-        <label for="links"></label>
-        <input type="url" id="links" name="links"><br>
+
+        <label for="book_id">enter book ID</label>
+        <input type="text" id="book_id" name="book_id"><br>
+        <label for="dev_key">enter your dev key</label>
+        <input type="text" id="dev_key" name="dev_key"><br>
+
         <button type="submit">Submit</button>
     </form>
-{% if book_INFO %}
-    <h3>{{ book_INFO.title }}</h3>
-    <h3>{{ book_INFO.average_rating }}</h3>
-    <h3>{{ book_INFO.ratings_count }}</h3>
-    <h3>{{ book_INFO.num_pages }}</h3>
-    <h3>{{ book_INFO.image_url }}</h3>
-    <h3>{{ book_INFO.publication_year }}</h3>
-    <h3>{{ book_INFO.authors }}</h3>
-{% endif %}
-    {% if error %}
-    <h1>{{ error }}</h1>
+    {% if data %}
+    <h1>{{ data }}</h1>
     {% endif %}
 </div>
-
 </body>
 </html>

@@ -1,6 +1,9 @@
 from django.shortcuts import render
 import requests
+import xmltodict
 from bs4 import BeautifulSoup
+import xml.etree.ElementTree as ET
+import urllib.request
 # Create your views here.
 
 def get_book_details(book_url):
@@ -80,8 +83,22 @@ def home(request):
         except ValueError:
             return render(request,'core/home.html')
 
+def gdapi(request):
+    if request.method=='POST':
+        return render(request,'core/home.html')
+    else:
+        try:
 
+            book_id = request.GET.get('book_id','')
+            dev_key = request.GET.get('dev_key','')
+            res1='https://www.goodreads.com/book/show/{}.xml?key={}'.format(book_id,dev_key)
+            print(res1)
+            r = urllib.request.urlopen('https://pythonprogramming.net/sitemap.xml').read()
+            soup = BeautifulSoup(r, 'xml')
+            tree = ET.parse(r.text)
+            root = tree.getroot()
+            print(soup.h2)
+            return render(request,'core/gdapi.html')
 
-
-
-
+        except ValueError:
+            return render(request,'core/gdapi.html')
